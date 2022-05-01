@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/codeninjas-timer/static/css/main.ab68ad60.css",
+    "main.js": "/codeninjas-timer/static/js/main.e8632517.js",
+    "index.html": "/codeninjas-timer/index.html",
+    "main.ab68ad60.css.map": "/codeninjas-timer/static/css/main.ab68ad60.css.map",
+    "main.e8632517.js.map": "/codeninjas-timer/static/js/main.e8632517.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab68ad60.css",
+    "static/js/main.e8632517.js"
+  ]
+}
