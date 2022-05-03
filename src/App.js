@@ -83,34 +83,25 @@ function App() {
         <div className="ninjas ninja-2" />
         <div className="ninjas ninja-3" />
         {currentScreen === screens.HOME ? (
-          <HomeScreen />
+          <>
+            <p className="timer-text-top">
+              We are on <br /> <span>{currentActivity}</span> time!
+            </p>
+
+            <p className="timer-text-bottom">
+              <span>{getNextActivity()}</span> starts @{" "}
+              {timeToString(nextActivityTime)}
+            </p>
+          </>
         ) : (
           <div className="settings-frame">
-            <p>Time until</p>
+            <p>Next Activity</p>
             <div className="settings-frame-change">
               <p>{getNextActivity()}</p>
               <input
                 type="text"
                 placeholder={timeToString(nextActivityTime)}
-                onKeyPress={(e) => {
-                  if (e.code === "Enter") {
-                    e.preventDefault();
-                    let newTimeSplit = e.target.value.split(":");
-                    let newTime =
-                      Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24) *
-                        (1000 * 60 * 60 * 24) +
-                      4 * 1000 * 60 * 60; // Only works in GMT4 time zone lol
-                    if (new Date(nextActivityTime).getHours() > 12) {
-                      newTime += 1000 * 60 * 60 * 12;
-                    }
-
-                    newTime += 1000 * 60 * 60 * parseInt(newTimeSplit[0]); // Add hours
-                    newTime += 1000 * 60 * parseInt(newTimeSplit[1]); // Add minutes
-
-                    setNextActivityTime(newTime);
-                    setCurrentScreen(screens.HOME);
-                  }
-                }}
+                onKeyPress={onNextActivityTimeChange}
               />
             </div>
           </div>
@@ -123,19 +114,24 @@ function App() {
     </div>
   );
 
-  function HomeScreen() {
-    return (
-      <>
-        <p className="timer-text-top">
-          We are on <br /> <span>{currentActivity}</span> time!
-        </p>
+  function onNextActivityTimeChange(e) {
+    if (e.code === "Enter") {
+      e.preventDefault();
+      let newTimeSplit = e.target.value.split(":");
+      let newTime =
+        Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24) *
+          (1000 * 60 * 60 * 24) +
+        4 * 1000 * 60 * 60; // Only works in GMT4 time zone lol
+      if (new Date(nextActivityTime).getHours() > 12) {
+        newTime += 1000 * 60 * 60 * 12;
+      }
 
-        <p className="timer-text-bottom">
-          <span>{getNextActivity()}</span> starts @{" "}
-          {timeToString(nextActivityTime)}
-        </p>
-      </>
-    );
+      newTime += 1000 * 60 * 60 * parseInt(newTimeSplit[0]); // Add hours
+      newTime += 1000 * 60 * parseInt(newTimeSplit[1]); // Add minutes
+
+      setNextActivityTime(newTime);
+      setCurrentScreen(screens.HOME);
+    }
   }
 
   function timeToString(time, includeSuffix = false) {
