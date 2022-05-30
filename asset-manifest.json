@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/codeninjas-timer/static/css/main.ab68ad60.css",
-    "main.js": "/codeninjas-timer/static/js/main.7e88ed7f.js",
-    "index.html": "/codeninjas-timer/index.html",
-    "main.ab68ad60.css.map": "/codeninjas-timer/static/css/main.ab68ad60.css.map",
-    "main.7e88ed7f.js.map": "/codeninjas-timer/static/js/main.7e88ed7f.js.map"
+    "main.css": "/timer.codeninjasfl.com/static/css/main.ab68ad60.css",
+    "main.js": "/timer.codeninjasfl.com/static/js/main.7e88ed7f.js",
+    "index.html": "/timer.codeninjasfl.com/index.html",
+    "main.ab68ad60.css.map": "/timer.codeninjasfl.com/static/css/main.ab68ad60.css.map",
+    "main.7e88ed7f.js.map": "/timer.codeninjasfl.com/static/js/main.7e88ed7f.js.map"
   },
   "entrypoints": [
     "static/css/main.ab68ad60.css",
